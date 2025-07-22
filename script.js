@@ -8,7 +8,7 @@ function shuffle(array) {
 // Object mapping country names to their flag image file and alt text
 const flagsData = {
   Japan: {
-    src: "https://www.google.com/imgres?q=japanese%20flag&imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fen%2Fthumb%2F9%2F9e%2FFlag_of_Japan.svg%2F1200px-Flag_of_Japan.svg.png&imgrefurl=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FFlag_of_Japan&docid=Wt2oZS8QZn261M&tbnid=XqR4YVk8UzMtyM&vet=12ahUKEwiUqqTN0tCOAxVLhf0HHZm3EQ8QM3oECAwQAA..i&w=1200&h=800&hcb=2&ved=2ahUKEwiUqqTN0tCOAxVLhf0HHZm3EQ8QM3oECAwQAA",
+    src: "japan.png",
     alt: "White flag with red circle in center"
   },
   France: {
