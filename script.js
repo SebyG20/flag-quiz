@@ -36,7 +36,7 @@ const flagsData = {
     alt: "Orange, white, green stripes with blue wheel"
   },
   USA: {
-    src: "usa.png",
+    src: "USA.png",
     alt: "Red and white stripes with blue square of stars"
   },
   Spain: {
