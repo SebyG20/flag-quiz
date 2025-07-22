@@ -1,0 +1,145 @@
+.option-btn.correct {
+  background-color: #28a745 !important;
+  color: #fff;
+}
+.option-btn.incorrect {
+  background-color: #df0e23 !important;
+  color: #fff;
+}
+
+
+/* Color palette: white text, black background, secondary color as CSS variable */
+:root {
+  --secondary: #007bff; /* Will be set randomly by JS */
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Main container for the quiz content */
+.container {
+  width: 100%;
+  max-width: 600px;
+  margin: 24px auto;
+  padding: 24px 20px;
+  background: #111;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* Style for the flag image */
+.flag-img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+
+/* Layout for the answer option buttons */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+
+/* Style for each answer option button */
+.option-btn {
+  padding: 12px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--secondary);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* Hover effect for answer buttons */
+.option-btn:hover {
+  filter: brightness(1.2);
+}
+
+
+/* Style for the Next button (hidden by default) */
+#next-btn, #retry-btn {
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 16px;
+  display: none;
+  background-color: var(--secondary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 100%;
+  max-width: 320px;
+  box-sizing: border-box;
+}
+
+#next-btn:hover, #retry-btn:hover {
+  filter: brightness(1.2);
+}
+
+
+/* Style for the result text at the end of the quiz */
+#result {
+  font-size: 18px;
+  margin-top: 20px;
+  font-weight: bold;
+  word-break: break-word;
+}
+
+@media (max-width: 700px) {
+  .container {
+    max-width: 98vw;
+    padding: 16px 2vw;
+  }
+  .flag-img {
+    max-width: 90vw;
+  }
+  .options, #next-btn, #retry-btn {
+    max-width: 98vw;
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    padding: 8px 0.5vw;
+  }
+  .flag-img {
+    margin: 10px 0;
+  }
+  .option-btn, #next-btn, #retry-btn {
+    font-size: 14px;
+    padding: 10px 8px;
+  }
+  #result {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flag Quiz</title>
+  <!-- Link to the main stylesheet for styling the quiz -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Main container for the quiz content -->
+  <div class="container">
+    <!-- Quiz title -->
+    <h1>Guess the Flag</h1>
+    <!-- Dynamic area where the flag image and answer options are rendered -->
+    <div id="quiz-container"></div>
+    <!-- Button to proceed to the next question (hidden until needed) -->
+    <button id="next-btn">Next</button>
+    <!-- Area to display the user's result at the end of the quiz -->
+    <p id="result"></p>
+    <!-- Button to retry the quiz (hidden until quiz ends) -->
+    <button id="retry-btn" style="display:none;">Retry</button>
+  </div>
+
+  <!-- Load the main JavaScript file for quiz logic -->
+  <script src="script.js"></script>
+</body>
+</html>

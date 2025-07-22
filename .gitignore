@@ -1,0 +1,4 @@
+.vscode/
+AppData/
+node_modules/
+*.log
