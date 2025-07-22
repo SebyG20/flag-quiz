@@ -44,7 +44,7 @@ const flagsData = {
     alt: "Red-yellow-red horizontal stripes with crest"
   },
   UK: {
-    src: "uk.png",
+    src: "UK.png",
     alt: "Blue background with red and white cross overlay"
   },
   Australia: {
