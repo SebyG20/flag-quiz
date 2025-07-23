@@ -115,10 +115,14 @@ body {
   word-break: break-word;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .container {
     max-width: 98vw;
     padding: 16px 2vw;
+  }
+  .card {
+    max-width: 98vw;
+    padding: 1.5rem 1vw;
   }
   .flag-img {
     max-width: 90vw;
@@ -126,20 +130,68 @@ body {
   .options, #next-btn, #retry-btn {
     max-width: 98vw;
   }
+  #username {
+    width: 95%;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 10px 1vw;
+    border-radius: 8px;
+  }
+  .card {
+    padding: 1rem 2vw;
+    border-radius: 10px;
+  }
+  .flag-img {
+    margin: 10px 0;
+    border-radius: 6px;
+  }
+  .option-btn, #next-btn, #retry-btn {
+    font-size: 15px;
+    padding: 10px 8px;
+    border-radius: 7px;
+  }
+  #result {
+    font-size: 16px;
+  }
+  #username {
+    font-size: 0.95rem;
+    padding: 0.4rem;
+    border-radius: 6px;
+  }
 }
 
 @media (max-width: 400px) {
   .container {
-    padding: 8px 0.5vw;
+    padding: 6px 0.5vw;
+    border-radius: 5px;
+  }
+  .card {
+    padding: 0.5rem 1vw;
+    border-radius: 6px;
   }
   .flag-img {
-    margin: 10px 0;
+    margin: 6px 0;
+    border-radius: 4px;
   }
   .option-btn, #next-btn, #retry-btn {
-    font-size: 14px;
-    padding: 10px 8px;
+    font-size: 13px;
+    padding: 8px 5px;
+    border-radius: 5px;
   }
   #result {
-    font-size: 15px;
+    font-size: 13px;
+  }
+  #username {
+    font-size: 0.9rem;
+    padding: 0.3rem;
+    border-radius: 4px;
+  }
+  #welcome-section ul {
+    padding-left: 0.7rem;
+    font-size: 13px;
   }
 }
