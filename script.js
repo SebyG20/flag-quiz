@@ -118,12 +118,17 @@ const questions = [
 // Shuffle the questions for each game session
 const shuffledQuestions = shuffle([...questions]);
 
-// Track the current question index and user score
+// Track the current question index, user score, and username
 let currentQuestion = 0;
 let score = 0;
+let username = "";
 
 
 // Get references to DOM elements
+const welcomeSection = document.getElementById("welcome-section");
+const startBtn = document.getElementById("start-btn");
+const usernameInput = document.getElementById("username");
+const quizTitle = document.getElementById("quiz-title");
 const quizContainer = document.getElementById("quiz-container");
 const nextBtn = document.getElementById("next-btn");
 const result = document.getElementById("result");
@@ -206,12 +211,26 @@ function handleAnswer(selectedBtn, correctAnswer) {
     setTimeout(() => {
       quizContainer.innerHTML = "";
       nextBtn.style.display = "none";
-      result.innerText = `You got ${score} out of ${shuffledQuestions.length} correct!`;
+      result.innerText = `${username}, you got ${score} out of ${shuffledQuestions.length} correct!`;
       retryBtn.style.display = "inline-block";
     }, 1000);
   }
 }
 
+
+// When the start button is clicked, validate username and start quiz
+startBtn.addEventListener("click", () => {
+  const name = usernameInput.value.trim();
+  if (!name) {
+    alert("Please enter your username to start the quiz.");
+    return;
+  }
+  username = name;
+  welcomeSection.style.display = "none";
+  quizTitle.style.display = "block";
+  quizContainer.style.display = "block";
+  showQuestion();
+});
 
 // When the next button is clicked, show the next question
 nextBtn.addEventListener("click", () => {
@@ -228,6 +247,9 @@ retryBtn.addEventListener("click", () => {
   }
   currentQuestion = 0;
   score = 0;
+  quizTitle.style.display = "block";
+  quizContainer.style.display = "block";
+  result.innerText = "";
   showQuestion();
 });
 
@@ -241,6 +263,8 @@ function setRandomSecondaryColor() {
 }
 
 setRandomSecondaryColor();
+// Quiz will start after username is entered and Start button is clicked
+
 
 // Start the quiz by showing the first question
 showQuestion();
