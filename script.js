@@ -266,5 +266,6 @@ setRandomSecondaryColor();
 // Quiz will start after username is entered and Start button is clicked
 
 
+
 // Start the quiz by showing the first question
 showQuestion();
