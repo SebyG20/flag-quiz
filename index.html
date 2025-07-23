@@ -10,12 +10,25 @@
 <body>
   <!-- Main container for the quiz content -->
   <div class="container">
+    <!-- Welcome section -->
+    <div id="welcome-section" class="card">
+      <h1>Welcome to the Flag Quiz!</h1>
+      <p>Rules:</p>
+      <ul>
+        <li>A picture of a flag will be shown in the middle of the screen.</li>
+        <li>There are 3 options per question, click on the one you believe is correct in order to guess.</li>
+        <li>After completing 20 questions, your score will be shown at the end.</li>
+      </ul>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required />
+      <button id="start-btn">Start Quiz</button>
+    </div>
     <!-- Quiz title -->
-    <h1>Guess the Flag</h1>
+    <h1 id="quiz-title" style="display:none;">Guess the Flag</h1>
     <!-- Dynamic area where the flag image and answer options are rendered -->
-    <div id="quiz-container"></div>
+    <div id="quiz-container" style="display:none;"></div>
     <!-- Button to proceed to the next question (hidden until needed) -->
-    <button id="next-btn">Next</button>
+    <button id="next-btn" style="display:none;">Next</button>
     <!-- Area to display the user's result at the end of the quiz -->
     <p id="result"></p>
     <!-- Button to retry the quiz (hidden until quiz ends) -->
