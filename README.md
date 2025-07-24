@@ -1,4 +1,4 @@
-# Project Title
+# Flag Quiz
 
 ## Table of Contents
 - [About](#about)
