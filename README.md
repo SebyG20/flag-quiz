@@ -22,6 +22,7 @@ This is a 20 quesion online quiz on the flags of the world. This quiz is designe
 
 -One way is by simply clicking on this link, which will lead you directly to the quiz: https://sebyg20.github.io/flag-quiz/
 -If you wish to access more than just the website, access: https://github.com/SebyG20/flag-quiz where you will be able to see every file of the project. Then download in the following structure:
+
 main/
 │
 ├── index.html
