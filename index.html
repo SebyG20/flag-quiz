@@ -10,7 +10,7 @@
 <body>
   <!-- Main container for the quiz content -->
   <div class="container">
-    <!-- Welcome section -->
+    <!-- Welcome section displayed before the quiz starts -->
     <div id="welcome-section" class="card">
       <h1>Welcome to the Flag Quiz!</h1>
       <p>Rules:</p>
@@ -19,23 +19,25 @@
         <li>There are 3 options per question, click on the one you believe is correct in order to guess.</li>
         <li>After completing 20 questions, your score will be shown at the end.</li>
       </ul>
+      <!-- Input for the user to enter their username -->
       <label for="username">Username:</label>
       <input type="text" id="username" name="username" required />
+      <!-- Button to start the quiz and hide the welcome section -->
       <button id="start-btn">Start Quiz</button>
     </div>
-    <!-- Quiz title -->
+    <!-- Quiz title, shown only when the quiz starts -->
     <h1 id="quiz-title" style="display:none;">Guess the Flag</h1>
-    <!-- Dynamic area where the flag image and answer options are rendered -->
+    <!-- Container where the flag image and answer options will be dynamically rendered -->
     <div id="quiz-container" style="display:none;"></div>
-    <!-- Button to proceed to the next question (hidden until needed) -->
+    <!-- Button to move to the next question, shown only after an answer is selected -->
     <button id="next-btn" style="display:none;">Next</button>
-    <!-- Area to display the user's result at the end of the quiz -->
+    <!-- Paragraph to display the final score or messages at the end of the quiz -->
     <p id="result"></p>
-    <!-- Button to retry the quiz (hidden until quiz ends) -->
+    <!-- Button to retry the quiz, shown only after the quiz is completed -->
     <button id="retry-btn" style="display:none;">Retry</button>
   </div>
 
-  <!-- Load the main JavaScript file for quiz logic -->
+  <!-- Load the main JavaScript file which contains the quiz functionality -->
   <script src="script.js"></script>
 </body>
 </html>
