@@ -1,23 +1,23 @@
+/* Styles for correct and incorrect answer buttons */
 .option-btn.correct {
-  background-color: #28a745 !important;
-  color: #fff;
+  background-color: #28a745 !important; /* Green background for correct answers */
+  color: #fff; /* White text */
 }
 .option-btn.incorrect {
-  background-color: #df0e23 !important;
-  color: #fff;
+  background-color: #df0e23 !important; /* Red background for incorrect answers */
+  color: #fff; /* White text */
 }
 
-
-/* Color palette: white text, black background, secondary color as CSS variable */
+/* CSS variable for secondary color, initially set but overwritten by JS */
 :root {
-  --secondary: #007bff; /* Will be set randomly by JS */
+  --secondary: #007bff; /* Default blue, will be set randomly by JS */
 }
 
-
+/* Global body styles for font, background, and centering content */
 body {
   font-family: Arial, sans-serif;
-  background-color: #000;
-  color: #fff;
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
   min-height: 100vh;
   margin: 0;
   display: flex;
@@ -26,14 +26,13 @@ body {
   justify-content: center;
 }
 
-
-/* Main container for the quiz content */
+/* Main quiz container styling: size, background, padding, and shadow */
 .container {
   width: 100%;
   max-width: 600px;
   margin: 24px auto;
   padding: 24px 20px;
-  background: #111;
+  background: #111; /* Dark gray background */
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
   display: flex;
@@ -41,19 +40,17 @@ body {
   align-items: center;
 }
 
-
-/* Style for the flag image */
+/* Style for the displayed flag image */
 .flag-img {
   width: 100%;
   max-width: 300px;
   height: auto;
   margin: 20px 0;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Subtle shadow */
 }
 
-
-/* Layout for the answer option buttons */
+/* Layout for the answer buttons container - vertical stack with spacing */
 .options {
   display: flex;
   flex-direction: column;
@@ -63,34 +60,30 @@ body {
   margin: 0 auto;
 }
 
-
-/* Style for each answer option button */
+/* Styling each answer button */
 .option-btn {
   padding: 12px 15px;
   font-size: 16px;
   border: none;
   border-radius: 8px;
-  background-color: var(--secondary);
+  background-color: var(--secondary); /* Uses secondary color variable */
   color: #fff;
   cursor: pointer;
   transition: background 0.2s;
   width: 100%;
-
 }
 
-
-/* Hover effect for answer buttons */
+/* Hover effect on answer buttons for better interactivity */
 .option-btn:hover {
   filter: brightness(1.2);
 }
 
-
-/* Style for the Next button (hidden by default) */
+/* Styles for Next and Retry buttons, hidden by default */
 #next-btn, #retry-btn {
   margin-top: 20px;
   padding: 12px 20px;
   font-size: 16px;
-  display: none;
+  display: none; /* Hidden initially */
   background-color: var(--secondary);
   color: #fff;
   border: none;
@@ -102,19 +95,20 @@ body {
   box-sizing: border-box;
 }
 
+/* Hover effect for Next and Retry buttons */
 #next-btn:hover, #retry-btn:hover {
   filter: brightness(1.2);
 }
 
-
-/* Style for the result text at the end of the quiz */
+/* Styling for the result text shown at the end of the quiz */
 #result {
   font-size: 18px;
   margin-top: 20px;
   font-weight: bold;
-  word-break: break-word;
+  word-break: break-word; /* Allows long text to wrap properly */
 }
 
+/* Responsive styles for screens smaller than 900px */
 @media (max-width: 900px) {
   .container {
     max-width: 98vw;
@@ -136,6 +130,7 @@ body {
   }
 }
 
+/* Responsive styles for screens smaller than 600px */
 @media (max-width: 600px) {
   .container {
     padding: 10px 1vw;
@@ -164,6 +159,7 @@ body {
   }
 }
 
+/* Responsive styles for screens smaller than 400px */
 @media (max-width: 400px) {
   .container {
     padding: 6px 0.5vw;
@@ -190,6 +186,7 @@ body {
     padding: 0.3rem;
     border-radius: 4px;
   }
+  /* Adjust list styling inside the welcome section for small screens */
   #welcome-section ul {
     padding-left: 0.7rem;
     font-size: 13px;
