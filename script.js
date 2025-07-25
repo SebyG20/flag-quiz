@@ -1,96 +1,33 @@
-
-// Utility function to shuffle an array (Fisher-Yates style random sort)
+// Shuffles an array randomly using sort and a random comparator
 function shuffle(array) {
   return array.sort(() => Math.random() - 0.5);
 }
 
-
-// Object mapping country names to their flag image file and alt text
+// Object containing flag image filename and alternative text for each country
 const flagsData = {
-  Japan: {
-    src: "japan.png",
-    alt: "White flag with red circle in center"
-  },
-  France: {
-    src: "france.png",
-    alt: "Three vertical stripes: blue, white, red"
-  },
-  Brazil: {
-    src: "brazil.png",
-    alt: "Green flag with yellow diamond and blue globe"
-  },
-  Canada: {
-    src: "canada.png",
-    alt: "White flag with red maple leaf and red bars"
-  },
-  Germany: {
-    src: "germany.png",
-    alt: "Three horizontal stripes: black, red, yellow"
-  },
-  Italy: {
-    src: "italy.png",
-    alt: "Three vertical stripes: green, white, red"
-  },
-  India: {
-    src: "india.png",
-    alt: "Orange, white, green stripes with blue wheel"
-  },
-  USA: {
-    src: "USA.png",
-    alt: "Red and white stripes with blue square of stars"
-  },
-  Spain: {
-    src: "spain.png",
-    alt: "Red-yellow-red horizontal stripes with crest"
-  },
-  UK: {
-    src: "UK.png",
-    alt: "Blue background with red and white cross overlay"
-  },
-  Australia: {
-    src: "australia.png",
-    alt: "Blue with white stars and UK flag in corner"
-  },
-  "South Korea": {
-    src: "southkorea.png",
-    alt: "White background with yin-yang and black trigrams"
-  },
-  China: {
-    src: "china.png",
-    alt: "Red background with large yellow star and four smaller ones"
-  },
-  Sweden: {
-    src: "sweden.png",
-    alt: "Blue background with yellow cross"
-  },
-  Norway: {
-    src: "norway.png",
-    alt: "Red background with blue cross outlined in white"
-  },
-  Mexico: {
-    src: "mexico.png",
-    alt: "Green-white-red stripes with eagle on cactus"
-  },
-  Russia: {
-    src: "russia.png",
-    alt: "White-blue-red horizontal stripes"
-  },
-  Argentina: {
-    src: "argentina.png",
-    alt: "Light blue-white-light blue with sun in center"
-  },
-  "South Africa": {
-    src: "southafrica.png",
-    alt: "Multicolor Y-shape with green, yellow, black"
-  },
-  Portugal: {
-    src: "portugal.png",
-    alt: "Red-green split with national coat of arms"
-  }
+  Japan: { src: "japan.png", alt: "White flag with red circle in center" },
+  France: { src: "france.png", alt: "Three vertical stripes: blue, white, red" },
+  Brazil: { src: "brazil.png", alt: "Green flag with yellow diamond and blue globe" },
+  Canada: { src: "canada.png", alt: "White flag with red maple leaf and red bars" },
+  Germany: { src: "germany.png", alt: "Three horizontal stripes: black, red, yellow" },
+  Italy: { src: "italy.png", alt: "Three vertical stripes: green, white, red" },
+  India: { src: "india.png", alt: "Orange, white, green stripes with blue wheel" },
+  USA: { src: "USA.png", alt: "Red and white stripes with blue square of stars" },
+  Spain: { src: "spain.png", alt: "Red-yellow-red horizontal stripes with crest" },
+  UK: { src: "UK.png", alt: "Blue background with red and white cross overlay" },
+  Australia: { src: "australia.png", alt: "Blue with white stars and UK flag in corner" },
+  "South Korea": { src: "southkorea.png", alt: "White background with yin-yang and black trigrams" },
+  China: { src: "china.png", alt: "Red background with large yellow star and four smaller ones" },
+  Sweden: { src: "sweden.png", alt: "Blue background with yellow cross" },
+  Norway: { src: "norway.png", alt: "Red background with blue cross outlined in white" },
+  Mexico: { src: "mexico.png", alt: "Green-white-red stripes with eagle on cactus" },
+  Russia: { src: "russia.png", alt: "White-blue-red horizontal stripes" },
+  Argentina: { src: "argentina.png", alt: "Light blue-white-light blue with sun in center" },
+  "South Africa": { src: "southafrica.png", alt: "Multicolor Y-shape with green, yellow, black" },
+  Portugal: { src: "portugal.png", alt: "Red-green split with national coat of arms" }
 };
 
-
-// Array of quiz questions, each with the correct answer and multiple choice options
+// Array of quiz questions, each with the correct answer and three possible options
 const questions = [
   { answer: "Japan", options: ["Japan", "South Korea", "China"] },
   { answer: "France", options: ["France", "Italy", "Netherlands"] },
@@ -114,17 +51,15 @@ const questions = [
   { answer: "Portugal", options: ["Portugal", "Spain", "Italy"] }
 ];
 
-
-// Shuffle the questions for each game session
+// Shuffle questions at the start of the game to randomize their order
 const shuffledQuestions = shuffle([...questions]);
 
-// Track the current question index, user score, and username
+// Variables to track current question index, player's score, and username
 let currentQuestion = 0;
 let score = 0;
 let username = "";
 
-
-// Get references to DOM elements
+// DOM element references for different UI sections and buttons
 const welcomeSection = document.getElementById("welcome-section");
 const startBtn = document.getElementById("start-btn");
 const usernameInput = document.getElementById("username");
@@ -134,13 +69,11 @@ const nextBtn = document.getElementById("next-btn");
 const result = document.getElementById("result");
 const retryBtn = document.getElementById("retry-btn");
 
-
-// Display the current question, flag image, and answer options
+// Displays the current question with its flag and shuffled answer options
 function showQuestion() {
   const q = shuffledQuestions[currentQuestion];
   const flagInfo = flagsData[q.answer];
   
-  // If flag data is missing, log an error and skip
   if (!flagInfo) {
     console.error(`Flag data not found for ${q.answer}`);
     return;
@@ -148,11 +81,8 @@ function showQuestion() {
   
   const flagFile = flagInfo.src;
   const altText = flagInfo.alt;
-
-  // Shuffle the answer options for this question
   const shuffledOptions = shuffle([...q.options]);
 
-  // Render the flag image and answer buttons
   quizContainer.innerHTML = `
     <img src="assets/flags/${flagFile}" alt="${altText}" class="flag-img" />
     <div class="options">
@@ -162,7 +92,7 @@ function showQuestion() {
     </div>
   `;
 
-  // Add event listeners to option buttons
+  // Attach click handlers to answer buttons
   const optionBtns = quizContainer.querySelectorAll('.option-btn');
   optionBtns.forEach(btn => {
     btn.addEventListener('click', function() {
@@ -170,15 +100,13 @@ function showQuestion() {
     });
   });
 
-  // Hide the next and retry buttons, and clear result until an answer is chosen
+  // Hide next and retry buttons and clear feedback text
   nextBtn.style.display = "none";
   retryBtn.style.display = "none";
   result.innerText = "";
 }
 
-
-
-// Handle when a user selects an answer, provide feedback and color buttons
+// Handles user answer selection, disables buttons, shows correct/incorrect colors, and updates score
 function handleAnswer(selectedBtn, correctAnswer) {
   const optionBtns = quizContainer.querySelectorAll('.option-btn');
   let userWasCorrect = false;
@@ -204,7 +132,7 @@ function handleAnswer(selectedBtn, correctAnswer) {
     result.innerText = 'Incorrect!';
   }
   currentQuestion++;
-  // If there are more questions, show the next button; otherwise, show the final result and Retry button
+  // Show next button if more questions remain, otherwise show final result and retry button
   if (currentQuestion < shuffledQuestions.length) {
     nextBtn.style.display = "inline-block";
   } else {
@@ -217,8 +145,7 @@ function handleAnswer(selectedBtn, correctAnswer) {
   }
 }
 
-
-// When the start button is clicked, validate username and start quiz
+// Start button click handler: validates username, hides welcome, and starts quiz
 startBtn.addEventListener("click", () => {
   const name = usernameInput.value.trim();
   if (!name) {
@@ -232,38 +159,39 @@ startBtn.addEventListener("click", () => {
   showQuestion();
 });
 
-// When the next button is clicked, show the next question
+// Next button click handler: shows the next question and hides the next button
 nextBtn.addEventListener("click", () => {
   showQuestion();
   nextBtn.style.display = "none";
 });
 
-// When the retry button is clicked, reset the quiz state and start over
+// Retry button click handler: reshuffles questions, resets score and current question, and restarts quiz
 retryBtn.addEventListener("click", () => {
-  // Shuffle questions again for a new session
-  for (let i = shuffledQuestions.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffledQuestions[i], shuffledQuestions[j]] = [shuffledQuestions[j], shuffledQuestions[i]];
-  }
+  // Show welcome section and hide quiz UI elements
+  welcomeSection.style.display = "block";
+  quizTitle.style.display = "none";
+  quizContainer.style.display = "none";
+  nextBtn.style.display = "none";
+  retryBtn.style.display = "none";
+  result.innerText = "";
+  
+  // Reset username input and score/question index for fresh start
+  usernameInput.value = "";
   currentQuestion = 0;
   score = 0;
-  quizTitle.style.display = "block";
-  quizContainer.style.display = "block";
-  result.innerText = "";
-  showQuestion();
 });
 
-
-// Set a random secondary color for the palette
+// Sets a random vibrant secondary color for the CSS variable --secondary
 function setRandomSecondaryColor() {
-  // Generate a random color in HSL for vibrancy
   const hue = Math.floor(Math.random() * 360);
   const color = `hsl(${hue}, 80%, 50%)`;
   document.documentElement.style.setProperty('--secondary', color);
 }
 
 setRandomSecondaryColor();
-// Quiz will start after username is entered and Start button is clicked
+
+// The quiz begins when the user clicks the start button and enters their username
+
 
 
 
